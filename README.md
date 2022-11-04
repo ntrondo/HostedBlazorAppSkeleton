@@ -4,3 +4,6 @@ Main branch is continuously deployed to https://whostedblazorappskeleton.azurewe
 
 Origins
 Initial project structure and CI/CD created following this tutorial: https://www.youtube.com/watch?v=UpWeffxf790
+
+Coming
+Implement patterns from https://www.youtube.com/watch?v=SxfUHLAfC8k
