@@ -1,4 +1,7 @@
-using Microsoft.AspNetCore.ResponseCompression;
+using System.Reflection;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace Web
 {
@@ -12,6 +15,7 @@ namespace Web
 
             builder.Services.AddControllersWithViews();
             builder.Services.AddRazorPages();
+            Messages.Extentions.AddServerServices(builder.Services, Assembly.GetExecutingAssembly());            
 
             var app = builder.Build();
 

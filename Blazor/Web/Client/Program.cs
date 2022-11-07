@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Web.Client;
+using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Net.Http;
 
 namespace Web.Client
 {
@@ -13,6 +16,7 @@ namespace Web.Client
             builder.RootComponents.Add<HeadOutlet>("head::after");
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            Messages.Extentions.AddClientServices(builder.Services, System.Reflection.Assembly.GetExecutingAssembly());
 
             await builder.Build().RunAsync();
         }

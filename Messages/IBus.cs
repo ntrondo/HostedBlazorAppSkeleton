@@ -8,7 +8,7 @@ namespace Messages
     public interface IBus 
     {
         Task<TResponse> Send<TResponse>(MediatR.IRequest<TResponse> request);
-        //Task<object?> Send(object request);
+        Task<object?> Send(object request);
         void Publish<TNotification>(TNotification notification) where TNotification : MediatR.INotification;
     }
 }

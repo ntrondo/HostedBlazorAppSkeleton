@@ -1,6 +1,9 @@
 ﻿@page "/fetchdata"
+@using Messages
 @using Web.Shared
-@inject HttpClient Http
+@using Web.Shared.Models
+@using Web.Shared.Queries
+@inject IBus Bus
 
 <PageTitle>Weather forecast</PageTitle>
 
@@ -42,6 +45,6 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("WeatherForecast");
+        forecasts = await Bus.Send(new ForecastQuery());
     }
 }
