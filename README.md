@@ -9,3 +9,5 @@ Initial project structure and CI/CD created following the video:
 ## Coming
 Implement patterns from the video: 
 [Blazor Architecture Patterns](https://www.youtube.com/watch?v=SxfUHLAfC8k)
+- [Connecting Blazor to Azure SignalR Service](https://blazorhelpwebsite.com/ViewBlogPost/32)
+- Add diagrams using [PlantUML](https://plantuml.com/)
