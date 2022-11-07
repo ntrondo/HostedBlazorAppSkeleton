@@ -1,5 +1,6 @@
 ﻿@page "/counter"
 @using Messages
+@using Web.Shared.Notifications
 @using Web.Shared.Queries
 @inject IBus Bus
 
@@ -15,12 +16,14 @@
 @code {
     private int currentCount = 0;
     private string returnValue = "";
-   
+
     private async void IncrementCount()
     {
+        Bus.Publish(new CounterIncrementingNotification());
         currentCount++;
         var newCount = await Bus.Send<ServerCount>(new CounterQuery(currentCount));
         returnValue = $"{newCount.NewCount} from server process '{newCount.ServerProcessName}'";
         StateHasChanged();
+        Bus.Publish(new CounterIncrementedNotification());
     }
 }
