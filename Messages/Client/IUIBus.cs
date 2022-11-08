@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Messages
+namespace Messages.Client
 {
-    public interface IUiBus
+    public interface IUIBus
     {
         void Register(IListener listener);
         void UnRegister(IListener listener);

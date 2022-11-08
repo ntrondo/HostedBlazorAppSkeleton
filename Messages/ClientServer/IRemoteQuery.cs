@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Messages
+namespace Messages.ClientServer
 {
-    public interface IRemoteQuery<T>:IRemoteableRequest, MediatR.IRequest<T>
+    public interface IRemoteQuery<T> : IRemoteableRequest, IQuery<T>
     {
     }
 }

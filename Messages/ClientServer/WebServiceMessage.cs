@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace Messages
+namespace Messages.ClientServer
 {
     /// <summary>
     /// Inpired by https://github.com/jeffreypalermo/blazor-wasm-single-web-api/blob/master/src/Shared/WebServiceMessage.cs
@@ -29,7 +29,7 @@ namespace Messages
 
         public string GetJson()
         {
-            return JsonSerializer.Serialize(this, this.GetType());
+            return JsonSerializer.Serialize(this, GetType());
         }
 
         public TReturn GetBodyObject<TReturn>()

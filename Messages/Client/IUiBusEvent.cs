@@ -1,4 +1,4 @@
-﻿namespace Messages
+﻿namespace Messages.Client
 {
     public interface IUiBusEvent
     {
