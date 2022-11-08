@@ -1,0 +1,10 @@
+﻿@page "/forex"
+<h3>Forex</h3>
+<p>Prices are updated frequently. A transition indicates that they are updated.</p>
+<Web.Client.Components.HeartBeat/>
+<Web.Client.Components.HeartBeatIndicator/>
+
+@foreach(var model in Models)
+{
+    <Web.Client.Components.CurrencyPairComponent FirstTicker="@model.FirstTicker" SecondTicker="@model.SecondTicker" />
+}
