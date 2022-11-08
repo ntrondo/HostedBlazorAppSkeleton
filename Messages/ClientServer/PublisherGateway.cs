@@ -2,7 +2,7 @@
 using System.Net.Http.Json;
 using System.Text.Json;
 
-namespace Messages
+namespace Messages.ClientServer
 {
     /// <summary>
     /// Inspired by https://github.com/jeffreypalermo/blazor-wasm-single-web-api/blob/master/src/Shared/PublisherGateway.cs

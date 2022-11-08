@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 namespace Web.Shared.Models
 {
     public class WeatherForecast

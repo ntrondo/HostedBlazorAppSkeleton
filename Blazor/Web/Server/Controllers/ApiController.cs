@@ -1,4 +1,4 @@
-﻿using Messages;
+﻿using Messages.ClientServer;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
@@ -9,9 +9,9 @@ namespace Web.Server.Controllers
     [Route(PublisherGateway.ApiRelativeUrl)]
     public class ApiController : ControllerBase
     {
-        private readonly IBus _bus;
+        private readonly IAPIBus _bus;
 
-        public ApiController(IBus bus)
+        public ApiController(IAPIBus bus)
         {
             _bus = bus;
         }

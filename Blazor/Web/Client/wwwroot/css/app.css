@@ -62,3 +62,15 @@ a, .btn-link {
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
+
+.was-just-updated {
+    background-color: black;
+}
+    .was-just-updated.has-update-color-blue {
+        background-color: lightblue;
+    }
+
+.has-update-transition {
+    -webkit-transition: background-color 500ms linear;
+    transition: background-color 500ms linear;
+}
