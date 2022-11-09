@@ -7,10 +7,13 @@ Inspired by Jeffrey Palermo: [Jeffrey@Github](https://github.com/jeffreypalermo)
 ## UI Message Bus
 
 ```mermaid
-flowchart LR
+flowchart
+subgraph Client
+direction LR
     A[Component1] --> B[Bus]
     B-->C[Component2]
     B-->D[Component2]
+    end
 ```
 
 ## API Message Bus
@@ -27,3 +30,7 @@ subgraph Client
     B-->C
     C-.->B
 ```
+
+### Embedding charts:
+- [Mermaid Documentation](https://mermaid-js.github.io/mermaid/#/)
+- [Mermaid Live Editor](https://mermaid.live/)
