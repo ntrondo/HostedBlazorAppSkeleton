@@ -7,19 +7,23 @@ Inspired by Jeffrey Palermo: [Jeffrey@Github](https://github.com/jeffreypalermo)
 ## UI Message Bus
 
 ```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
+flowchart LR
+    A[Component1] --> B[Bus]
+    B-->C[Component2]
+    B-->D[Component2]
 ```
 
 ## API Message Bus
 ```mermaid
-classDiagram
-class BankAccount
-BankAccount : +String owner
-BankAccount : +BigDecimal balance
-BankAccount : +deposit(amount)
-BankAccount : +withdrawal(amount)
+flowchart RL
+subgraph Client
+    A[Component] --> B[Bus]
+    B-.->A
+    end
+    subgraph Server
+    C[Bus]-->D[Handler]
+    D -.-> C
+    end
+    B-->C
+    C-.->B
 ```
