@@ -66,9 +66,12 @@ a, .btn-link {
 .was-just-updated {
     background-color: black;
 }
-    .was-just-updated.has-update-color-blue {
-        background-color: lightblue;
-    }
+.was-just-updated.has-update-color-blue {
+    background-color: lightblue;
+}
+.was-just-updated.has-update-color-green {
+    background-color: lightgreen;
+}
 
 .has-update-transition {
     -webkit-transition: background-color 500ms linear;

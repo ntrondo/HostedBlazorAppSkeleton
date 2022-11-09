@@ -16,6 +16,7 @@ namespace Web.Shared.Queries
     }
     public class CurrencyResponse 
     {
+        public string? Error { get; set; }
         public double Rate { get; set; }
     }
 }

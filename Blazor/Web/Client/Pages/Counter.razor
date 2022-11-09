@@ -1,15 +1,9 @@
 ﻿@page "/counter"
-@using Messages
-@using Web.Shared.Notifications
-@using Web.Shared.Queries
-
-
 <PageTitle>Counter</PageTitle>
-
 <h1>Counter</h1>
-
-<p role="status">Current count: @currentCount</p>
-
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
-<p>@returnValue</p>
+<p>This page emits 'counter incremented notification' using the UIBus implementation. Subscribers anywhere in the application will be notified.</p>
+<button class="btn btn-primary mb-4" @onclick="IncrementCount">Increment count</button>
+<Web.Client.Components.CounterComponent />
+<Web.Client.Components.CounterComponent />
+<Web.Client.Components.CounterComponent />
 
