@@ -1,10 +1,16 @@
 ﻿@page "/forex"
-<h3>Forex</h3>
-<p>Prices are updated frequently. A transition indicates that they are updated.</p>
+<h1>Forex</h1>
+<p>This page demonstrates client server message bus by loading foreign exchange rates.</p>
+<ul>
+    <li>A heart beat control issues a notification regularly through the UIBus.</li>
+    <li>On every heart beat, each rate component sends a request through the client-server massage bus.</li>
+    <li>The server app relays the request to a public web service.</li>
+    <li>Rate components highlights when updated.</li>
+</ul>
 <Web.Client.Components.HeartBeat/>
 <Web.Client.Components.HeartBeatIndicator/>
 
 @foreach(var model in Models)
 {
-    <Web.Client.Components.CurrencyPairComponent FirstTicker="@model.FirstTicker" SecondTicker="@model.SecondTicker" />
+    <Web.Client.Components.CurrencyPairComponent @key=@model.Id FirstTicker="@model.FirstTicker" SecondTicker="@model.SecondTicker" />
 }
