@@ -5,6 +5,6 @@
     /// </summary>
     public interface IPublisherGateway
     {
-        Task<WebServiceMessage?> Publish(IRemoteableRequest request);
+        Task<WebServiceMessage> Publish(IRemoteableRequest request);
     }
 }

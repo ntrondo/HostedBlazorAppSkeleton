@@ -13,13 +13,13 @@
             _gateway = gateway;
         }
 
-        public async override Task<TResponse> Send<TResponse>(IQuery<TResponse> q)
+        public async override Task<R> Send<R>(IQuery<R> q)
         {
-            if(q is IRemoteQuery<TResponse> rq)
+            if(q is IRemoteQuery<R> rq)
             {
                 WebServiceMessage result = await _gateway.Publish(rq) ?? throw new InvalidOperationException();
-                TResponse returnEvent = result.GetBodyObject<TResponse>();
-                return returnEvent;
+                R? r = result.GetBodyObject<R>();
+                return r ?? new();
             }
             return await base.Send(q);
         }

@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Messages.Client
 {
     /// <summary>
     /// Inspired by https://github.com/jeffreypalermo/blazormvc/blob/master/BlazorMvc/MvcBus.cs
     /// </summary>
-    internal class UIBus : IUIBus
+    internal class UIBus : IUIBus,IDisposable
     {
         private bool _disposed;
         private readonly ISet<IListener> _listeners = new HashSet<IListener>();
@@ -52,7 +47,7 @@ namespace Messages.Client
             }
             _disposed = true;
         }
-        public void Dispose()
+        public virtual void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);

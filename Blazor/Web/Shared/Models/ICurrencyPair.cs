@@ -8,7 +8,7 @@ namespace Web.Shared.Models
 {
     public interface ICurrencyPair
     {
-        string? FirstTicker { get; }
-        string? SecondTicker { get; }
+        string FirstTicker { get; }
+        string SecondTicker { get; }
     }
 }

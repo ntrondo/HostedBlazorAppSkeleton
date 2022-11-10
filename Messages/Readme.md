@@ -10,7 +10,7 @@ Inspired by Jeffrey Palermo: [Jeffrey@Github](https://github.com/jeffreypalermo)
 flowchart
 subgraph Client
 direction LR
-    A[Component1]-->B[Bus]
+    A[Component1]-->B[UIBus]
     B-->C[Component2]
     B-->D[Component2]
     end
@@ -27,11 +27,11 @@ The components must subscribe to the bus to receive messages.
 ```mermaid
 flowchart RL
 subgraph Client
-    A[Component]-->B[Bus]
+    A[Component]-->B[CBus]
     B-.->A
     end
     subgraph Server
-    C[Bus]-->D[Handler]
+    C[SBus]-->D[Handler]
     D-.->C
     end
     B-->C

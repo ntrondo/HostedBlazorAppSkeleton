@@ -6,7 +6,7 @@
     /// </summary>
     public interface IAPIBus
     {
-        Task<TResponse> Send<TResponse>(IQuery<TResponse> request);
-        Task<object?> Send(object request);
+        Task<R> Send<R>(IQuery<R> request)where R:new();
+        Task<object> Send(object request);
     }
 }
