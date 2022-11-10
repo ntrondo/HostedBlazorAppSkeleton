@@ -1,6 +1,6 @@
 ﻿namespace Messages.Client
 {
-    public interface IListener
+    public interface IListener:IDisposable
     {
 
     }

@@ -21,7 +21,7 @@ namespace Messages.ClientServer
             TypeName = request.GetType().FullName + ", " + request.GetType().Assembly.GetName().Name;
         }
 
-        public string GetBody(object request)
+        public static string GetBody(object request)
         {
             var body = JsonSerializer.Serialize(request, request.GetType());
             return body;
@@ -32,18 +32,18 @@ namespace Messages.ClientServer
             return JsonSerializer.Serialize(this, GetType());
         }
 
-        public TReturn GetBodyObject<TReturn>()
+        public TReturn? GetBodyObject<TReturn>()
         {
-            Type type = typeof(TReturn);
+            Type type = typeof(TReturn?);
             string value = Body;
-            return (TReturn)JsonSerializer.Deserialize(value, type);
+            return (TReturn?)JsonSerializer.Deserialize(value, type);
         }
 
-        public object GetBodyObject()
+        public object? GetBodyObject()
         {
-            Type type = Type.GetType(TypeName, true);
+            Type? type = TypeName == null ? null : Type.GetType(TypeName, true);
             string value = Body;
-            return JsonSerializer.Deserialize(value, type);
+            return type == null ? null : JsonSerializer.Deserialize(value, type);
         }
     }
 }

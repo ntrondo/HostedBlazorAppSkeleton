@@ -12,16 +12,16 @@
             _mediator = mediator;
         }
 
-        public virtual async Task<TResponse> Send<TResponse>(IQuery<TResponse> q)
+        public virtual async Task<R> Send<R>(IQuery<R> q)where R:new()
         {
-            TResponse response = await _mediator.Send(q);
+            R response = await _mediator.Send(q);
             return response;
         }
 
-        public async Task<object?> Send(object request)
+        public async Task<object> Send(object request)
         {
-            var response = await _mediator.Send(request);
-            return response;
+            var r = await _mediator.Send(request);
+            return r ?? new();
         }
     }
 }

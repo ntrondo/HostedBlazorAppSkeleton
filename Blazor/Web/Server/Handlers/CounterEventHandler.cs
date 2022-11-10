@@ -1,4 +1,4 @@
-﻿using MediatR;
+﻿using Messages.ClientServer;
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
@@ -6,7 +6,7 @@ using Web.Shared.Queries;
 
 namespace Web.Server.Handlers
 {
-    public class CounterEventHandler : IRequestHandler<CounterQuery, ServerCount>
+    public class CounterEventHandler : IQueryHandler<CounterQuery, ServerCount>
     {
         public Task<ServerCount> Handle(CounterQuery request, CancellationToken cancellationToken)
         {

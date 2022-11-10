@@ -19,7 +19,8 @@ namespace Web.Server.Controllers
         [HttpPost]
         public async Task<string> Post(WebServiceMessage webServiceMessage)
         {
-            var result = await _bus.Send(webServiceMessage.GetBodyObject()) ?? throw new InvalidOperationException();
+            object body = webServiceMessage.GetBodyObject() ?? new();
+            var result = await _bus.Send(body) ?? throw new InvalidOperationException();
             return new WebServiceMessage(result).GetJson();
         }
     }

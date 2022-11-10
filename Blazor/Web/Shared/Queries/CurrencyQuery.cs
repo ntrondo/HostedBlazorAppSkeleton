@@ -1,21 +1,17 @@
 ﻿using Messages.ClientServer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Web.Shared.Models;
+using Web.Server.Models;
 
 namespace Web.Shared.Queries
 {
-    public class CurrencyQuery : IRemoteQuery<CurrencyResponse>, ICurrencyPair
+    public class CurrencyQuery : CurrencyPairModel, IRemoteQuery<CurrencyResponse>
     {
-        public string? FirstTicker { get; set; }
-
-        public string? SecondTicker { get; set; }
+        public CurrencyQuery(string firstTicker, string secondTicker) : base(firstTicker, secondTicker)
+        {
+        }
     }
     public class CurrencyResponse 
     {
+        public string? Error { get; set; }
         public double Rate { get; set; }
     }
 }

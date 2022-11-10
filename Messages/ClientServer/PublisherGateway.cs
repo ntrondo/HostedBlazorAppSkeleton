@@ -17,18 +17,18 @@ namespace Messages.ClientServer
             _httpClient = httpClient;
         }
 
-        public async Task<WebServiceMessage?> Publish(IRemoteableRequest request)
+        public async Task<WebServiceMessage> Publish(IRemoteableRequest request)
         {
             var message = new WebServiceMessage(request);
             return await SendToTopic(message);
         }
 
-        public virtual async Task<WebServiceMessage?> SendToTopic(WebServiceMessage message)
+        public virtual async Task<WebServiceMessage> SendToTopic(WebServiceMessage message)
         {
             HttpContent content = new StringContent(message.GetJson());
             var result = await _httpClient.PostAsJsonAsync(ApiRelativeUrl, message);
             var json = await result.Content.ReadAsStringAsync();
-            return JsonSerializer.Deserialize<WebServiceMessage>(json);
+            return JsonSerializer.Deserialize<WebServiceMessage>(json) ?? new();
         }
     }
 }
