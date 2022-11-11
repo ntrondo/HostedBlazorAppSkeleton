@@ -17,7 +17,15 @@ namespace Messages
             services.AddMediatR(assembly);
             services.AddTransient<PublisherGateway>();
             services.AddTransient<IAPIBus, APIClientBus>();
-            return services.AddSingleton<IUIBus,UIBus>();
+            return services.AddUIBusService();
+        }
+        public static IServiceCollection AddUIBusService(this IServiceCollection services)
+        {
+            return services.AddSingleton<IUIBus, UIBus>();
+        }
+        public static IUIBus CreateDefaultClientBusImplementation()
+        {
+            return new UIBus();
         }
     }
 }
